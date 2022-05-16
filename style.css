@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.game-board {
+    height: 405px;
+    width: 405px;
+    /* border: 1px solid rgba(0, 0, 0, 0.39); */
+    margin: 120px auto; /* centers the div */
+
+    display: flex;
+
+}
+
+.box {
+    /* border: 1px solid red; */
+    width: calc(400px / 3);
+    height: calc(400px / 3);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brd-right {
+    border-right: 5px solid black;
+}
+.brd-bot {
+    border-bottom: 5px solid black;
+}
