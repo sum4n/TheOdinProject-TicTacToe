@@ -18,3 +18,8 @@ Only if there is empty box update it with player marker and update the gameboard
 
 CheckGamewinner () checks when the game is won.
 CheckGameOver () checks when game ends.
+
+Tieing the game with termCounter reaches 9 and there is no winner.
+Stops the game by empting boxes = [] when game is own.
+
+restartGame(), resets everything and restart/resets the game.

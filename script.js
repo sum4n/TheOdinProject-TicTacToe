@@ -1,10 +1,10 @@
 const Gameboard = (() => {
-    const gameboard = ['', '', '', 
+    let gameboard = ['', '', '', 
                        '', '', '', 
                        '', '', ''];
 
-    const boxes = document.querySelectorAll(".box"); 
-    const list_boxes = Array.from(boxes);
+    let boxes = document.querySelectorAll(".box"); 
+    
     
     const populateBoard = () => {
         for (let i = 0; i < boxes.length; i++) {
@@ -24,6 +24,7 @@ const Gameboard = (() => {
         // console.log(e.target.textContent);
         // console.log(list_boxes.indexOf(e.target));
         // e.target.textContent = 'y';
+        const list_boxes = Array.from(boxes);
         const index = list_boxes.indexOf(e.target);
         
         if (!e.target.textContent) {
@@ -68,17 +69,32 @@ const Gameboard = (() => {
             
         if(winner){
             console.log(winner);
+            boxes = [];
         }
             
         if (!winner && termCount == 9){
             console.log('Tie');
         }
     }
+
+    const restartGame = () => {
+        boxes = document.querySelectorAll(".box");
+        gameboard = ['', '', '', 
+                       '', '', '', 
+                       '', '', ''];
+        termCount = 0;
+        playerMarker = ' ';
+       
+        playerPlay();
+        populateBoard();
+        
+    }
     
 
     return {
         // populateBoard,
         playerPlay,
+        restartGame
     };
 })();
 
