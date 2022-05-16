@@ -15,3 +15,6 @@ convert boxes node list to list with Array.form,
 get the clicked box's index from boxes list through event.target,
 
 Only if there is empty box update it with player marker and update the gameboard list. gameboard list's index matches boxes index. So it is easy to link gameboard list to boxes list.
+
+CheckGamewinner () checks when the game is won.
+CheckGameOver () checks when game ends.
