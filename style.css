@@ -8,19 +8,22 @@ h1 {
 }
 
 .game-board {
-    height: 405px;
-    width: 405px;
+    height: 105px;
+    width: 105px;
     /* border: 1px solid rgba(0, 0, 0, 0.39); */
     margin: 120px auto; /* centers the div */
 
     display: flex;
-
+    flex-direction: column;
+}
+.col1, .col2, .col3 {
+    display: flex;
 }
 
 .box {
-    /* border: 1px solid red; */
-    width: calc(400px / 3);
-    height: calc(400px / 3);
+    /* border: 1px solid rgba(255, 0, 0, 0.13); */
+    width: calc(100px / 3);
+    height: calc(100px / 3);
     
     display: flex;
     align-items: center;
@@ -28,8 +31,13 @@ h1 {
 }
 
 .brd-right {
-    border-right: 5px solid black;
+    border-right: 2px solid black;
 }
-.brd-bot {
-    border-bottom: 5px solid black;
+
+
+.col1 {
+    border-bottom: 2px solid black;
+}
+.col2 {
+    border-bottom: 2px solid black;
 }
