@@ -10,28 +10,48 @@
 </head>
 <body>
     <h1>Tic Tac Toe</h1>
-    <div class="winnerMsg">
-       
+    
+    <div class="form">
+        <form action="#">
+            <div id="playerXDiv" class="name">
+                <label for="playerX">Player X name:</label>
+                <input type="text" id="playerX" value="playerX">
+            </div>
+        
+            <div id="playerODiv" class="name">
+                <label for="playerO">Player O name:</label>
+                <input type="text" id="playerO" value="playerO">
+            </div>
+            <button type="submit" id="nameSubmit">Start</button>
+        </form>
     </div>
-    <div class="game-board">
-        <div class="col1">
-            <div class="box brd-right"></div>
-            <div class="box brd-right "></div>
-            <div class="box"></div>
+
+    <div class="game">
+        
+        <div class="winnerMsg"></div>
+        
+        <div class="game-board">
+            <div class="col1">
+                <div class="box brd-right"></div>
+                <div class="box brd-right "></div>
+                <div class="box"></div>
+            </div>
+            <div class="col2">
+                <div class="box brd-right"></div>
+                <div class="box brd-right"></div>
+                <div class="box"></div>
+            </div>
+            <div class="col3">
+                <div class="box brd-right"></div>
+                <div class="box brd-right"></div>
+                <div class="box"></div>
+            </div>
         </div>
-        <div class="col2">
-            <div class="box brd-right"></div>
-            <div class="box brd-right"></div>
-            <div class="box"></div>
+        
+        <div class="button">
+            <button id="restartBtn">Reset/Restart</button>
         </div>
-        <div class="col3">
-            <div class="box brd-right"></div>
-            <div class="box brd-right"></div>
-            <div class="box"></div>
-        </div>
-    </div>
-    <div class="button">
-        <button>Reset/Restart</button>
+
     </div>
     
 </body>

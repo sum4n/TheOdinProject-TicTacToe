@@ -3,6 +3,8 @@
     padding: 0;
     color: white;
     font-weight: bold;
+    /* outline: 1px solid white; */
+    /* display: block; */
 }
 body{
     width: 100%;
@@ -19,7 +21,7 @@ h1 {
     height: 200px;
     width: 260px;
     /* border: 1px solid rgb(255, 255, 255); */
-    margin: 80px auto; /* centers the div */
+    margin: 40px auto; /* centers the div */
 
     display: flex;
     flex-direction: column;
@@ -80,4 +82,38 @@ button {
     font-size: 24px;
 
     /* display: none; */
+}
+
+.game {
+    display: none;
+}
+
+/* Form */
+label, input {
+    display: block;
+}
+
+input {
+    color: black;
+    padding: 0 4px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.name {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.form button {
+    margin-top: 20px;
 }

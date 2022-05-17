@@ -32,3 +32,6 @@ colorBoxes() called my getGameWinner() to color 3-in-row boxes.
 resetColorBoxes() does what its name says.
 
 if (!e.target.textContent && !gameOver && termCount < 9) takes care of disabling clicking after the game is own or tied.
+
+Input player names:
+have no idea how playerX.value and playerY.value can be accessed from anywhere.

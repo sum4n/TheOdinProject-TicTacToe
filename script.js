@@ -1,4 +1,8 @@
 const Gameboard = (() => {
+
+    // const playerX = document.getElementById("playerX");
+    // const playerO = document.getElementById("playerO");
+
     let gameboard = ['', '', '', 
                        '', '', '', 
                        '', '', ''];
@@ -88,13 +92,17 @@ const Gameboard = (() => {
     const showGameOver = () => {
         let winMsg = document.querySelector('.winnerMsg');
         let winner = getGameWinner();
-            
-        if(winner){
-            winMsg.textContent = `[ ${winner} ] have won the game.`;
-            winMsg.style.backgroundColor = "black";
+
+        if(winner === "X") {
+            winner = playerX.value;
+        } else if (winner === "O") {
+            winner = playerO.value;
         }
             
-        if (!winner && termCount == 9){
+        if(winner){
+            winMsg.textContent = `${winner} have won the game.`;
+            winMsg.style.backgroundColor = "black";
+        } else if (!winner && termCount == 9){
             winMsg.textContent = "The game was a tie."
             winMsg.style.backgroundColor = "black";
         }
@@ -121,7 +129,7 @@ const Gameboard = (() => {
     }
 
     const restartGameClick = () => {
-        const restartBtn = document.querySelector('button');
+        const restartBtn = document.getElementById("restartBtn");
         restartBtn.addEventListener('click', restartGame);
     }
     
@@ -131,8 +139,37 @@ const Gameboard = (() => {
         playerPlay,
         restartGameClick,
     };
-})();
+}) ();
 
 // Gameboard.populateBoard();
 Gameboard.playerPlay();
 Gameboard.restartGameClick();
+
+
+const startGame = (() => {
+    const startBtn = document.getElementById("nameSubmit");
+
+    // const playerX = document.getElementById("playerX");
+    // const playerO = document.getElementById("playerO");
+
+    const btnClick = () => {
+        startBtn.addEventListener('click', runGame);
+    }
+
+    const runGame = () => {
+        const formElement = document.querySelector(".form");
+        const gameBody = document.querySelector(".game");
+        formElement.style.display = "none";
+        gameBody.style.display = 'block';
+        
+        // console.log(playerX.value);
+        // console.log(playerO.value);
+    }
+
+    return {
+        btnClick,
+    }
+
+}) ();
+
+startGame.btnClick();
