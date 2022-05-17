@@ -90,32 +90,34 @@ const Gameboard = (() => {
         let winner = getGameWinner();
             
         if(winner){
-            // console.log(winner);
-            // boxes = []; // makes clicking useless
-            winMsg.textContent = `${winner} have won the game.`;
+            winMsg.textContent = `[ ${winner} ] have won the game.`;
+            winMsg.style.backgroundColor = "black";
         }
             
         if (!winner && termCount == 9){
-            // console.log('Tie');
             winMsg.textContent = "The game was a tie."
+            winMsg.style.backgroundColor = "black";
         }
     }
 
     const restartGame = () => {
+       resetAll();
+        playerPlay();
+        populateBoard();
+        resetColorBoxes();
+        
+    }
+
+    const resetAll = () => {
         let winMsg = document.querySelector('.winnerMsg');
         winMsg.textContent = "";
-
+        winMsg.style.backgroundColor = "";
         gameboard = ['', '', '', 
                        '', '', '', 
                        '', '', ''];
         termCount = 0;
         gameOver = false;
         playerMarker = ' ';
-       
-        playerPlay();
-        populateBoard();
-        resetColorBoxes();
-        
     }
 
     const restartGameClick = () => {
@@ -128,7 +130,6 @@ const Gameboard = (() => {
         // populateBoard,
         playerPlay,
         restartGameClick,
-        termCount,
     };
 })();
 
