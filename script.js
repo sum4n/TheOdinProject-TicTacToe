@@ -69,16 +69,14 @@ const Gameboard = (() => {
         let winner = getGameWinner();
             
         if(winner){
-            console.log(winner);
+            // console.log(winner);
             boxes = []; // makes clicking useless
             winMsg.textContent = `${winner} have won the game.`;
-            winMsg.style.display = "flex";
         }
             
         if (!winner && termCount == 9){
-            console.log('Tie');
+            // console.log('Tie');
             winMsg.textContent = "The game was a tie."
-            winMsg.style.display = "flex";
         }
     }
 
@@ -86,7 +84,7 @@ const Gameboard = (() => {
         boxes = document.querySelectorAll(".box");
         
         let winMsg = document.querySelector('.winnerMsg');
-        winMsg.style.display = "none";
+        winMsg.textContent = "";
 
         gameboard = ['', '', '', 
                        '', '', '', 
