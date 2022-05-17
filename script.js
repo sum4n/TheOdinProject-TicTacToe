@@ -5,7 +5,12 @@ const Gameboard = (() => {
 
     let boxes = document.querySelectorAll(".box"); 
     
-    
+    const colorBoxes = (i,j,k) => {
+        boxes[i].style.backgroundColor = "Black";
+        boxes[j].style.backgroundColor = "Black";
+        boxes[k].style.backgroundColor = "Black";
+    }
+
     const populateBoard = () => {
         for (let i = 0; i < boxes.length; i++) {
             boxes[i].textContent = gameboard[i];
@@ -43,20 +48,28 @@ const Gameboard = (() => {
     let termCount = 0;
     const getGameWinner = () => {
         if(gameboard[0] && gameboard[0] === gameboard[1] && gameboard[0] === gameboard[2]) {
+            colorBoxes(0,1,2);
             return (`${gameboard[0]}`);
         } else if (gameboard[0] && gameboard[0] === gameboard[3] && gameboard[0] === gameboard[6]) {
+            colorBoxes(0,3,6);
             return (`${gameboard[0]}`)
         } else if (gameboard[0] && gameboard[0] === gameboard[4] && gameboard[0] === gameboard [8]) {
+            colorBoxes(0,4,8);
             return (`${gameboard[0]}`)
         } else if (gameboard[1] && gameboard[1] === gameboard[4] && gameboard[1] === gameboard [7]) {
+            colorBoxes(1,4,7);
             return (`${gameboard[1]}`)
         } else if (gameboard[2] && gameboard[2] === gameboard[5] && gameboard[2] === gameboard [8]) {
+            colorBoxes(2,5,8);
             return (`${gameboard[2]}`)
         } else if (gameboard[2] && gameboard[2] === gameboard[4] && gameboard[2] === gameboard [6]) {
+            colorBoxes(2,4,6);
             return (`${gameboard[2]}`)
         } else if (gameboard[3] && gameboard[3] === gameboard[4] && gameboard[3] === gameboard [5]) {
+            colorBoxes(3,4,5);
             return (`${gameboard[3]}`)
         } else if (gameboard[6] && gameboard[6] === gameboard[7] && gameboard[6] === gameboard [8]) {
+            colorBoxes(6,7,8);
             return (`${gameboard[6]}`)
         }
 
@@ -70,7 +83,7 @@ const Gameboard = (() => {
             
         if(winner){
             // console.log(winner);
-            boxes = []; // makes clicking useless
+            // boxes = []; // makes clicking useless
             winMsg.textContent = `${winner} have won the game.`;
         }
             
@@ -82,6 +95,9 @@ const Gameboard = (() => {
 
     const restartGame = () => {
         boxes = document.querySelectorAll(".box");
+        for(let i; i < boxes.length; i++) {
+            boxes[i].style.backgroundColor = "";
+        }
         
         let winMsg = document.querySelector('.winnerMsg');
         winMsg.textContent = "";

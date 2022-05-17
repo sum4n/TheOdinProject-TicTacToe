@@ -27,3 +27,5 @@ Stops the game by empting boxes = [] when game is own.
 restartGame(), resets everything and restart/resets the game.
 
 CheckGameOver() renamed showGameOver() as it also shows game over message.
+
+colorBoxes() called my getGameWinner() to color 3-in-row boxes.
