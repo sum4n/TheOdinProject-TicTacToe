@@ -9,6 +9,13 @@ const Gameboard = (() => {
         boxes[i].style.backgroundColor = "Black";
         boxes[j].style.backgroundColor = "Black";
         boxes[k].style.backgroundColor = "Black";
+        gameOver = true;
+    }
+
+    const resetColorBoxes = () => {
+        for(let i = 0; i < boxes.length; i++) {
+            boxes[i].style.backgroundColor = "";
+        }
     }
 
     const populateBoard = () => {
@@ -32,7 +39,7 @@ const Gameboard = (() => {
         const list_boxes = Array.from(boxes);
         const index = list_boxes.indexOf(e.target);
         
-        if (!e.target.textContent) {
+        if (!e.target.textContent && !gameOver && termCount < 9) {
             if(playerMarker === ' ' || playerMarker === 'O'){
             playerMarker = 'X';
             } else {
@@ -46,6 +53,7 @@ const Gameboard = (() => {
     }
 
     let termCount = 0;
+    let gameOver = false;
     const getGameWinner = () => {
         if(gameboard[0] && gameboard[0] === gameboard[1] && gameboard[0] === gameboard[2]) {
             colorBoxes(0,1,2);
@@ -94,11 +102,6 @@ const Gameboard = (() => {
     }
 
     const restartGame = () => {
-        boxes = document.querySelectorAll(".box");
-        for(let i; i < boxes.length; i++) {
-            boxes[i].style.backgroundColor = "";
-        }
-        
         let winMsg = document.querySelector('.winnerMsg');
         winMsg.textContent = "";
 
@@ -106,10 +109,12 @@ const Gameboard = (() => {
                        '', '', '', 
                        '', '', ''];
         termCount = 0;
+        gameOver = false;
         playerMarker = ' ';
        
         playerPlay();
         populateBoard();
+        resetColorBoxes();
         
     }
 

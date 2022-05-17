@@ -29,3 +29,6 @@ restartGame(), resets everything and restart/resets the game.
 CheckGameOver() renamed showGameOver() as it also shows game over message.
 
 colorBoxes() called my getGameWinner() to color 3-in-row boxes.
+resetColorBoxes() does what its name says.
+
+if (!e.target.textContent && !gameOver && termCount < 9) takes care of disabling clicking after the game is own or tied.
