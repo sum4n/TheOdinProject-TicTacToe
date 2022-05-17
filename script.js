@@ -93,6 +93,15 @@ const Gameboard = (() => {
         let winMsg = document.querySelector('.winnerMsg');
         let winner = getGameWinner();
 
+        // show whose turn in the msg div
+        if (playerMarker == "X") {
+            winMsg.textContent = `${playerO.value}'s turn : O`;
+            winMsg.style.backgroundColor = "black";
+        } else if (playerMarker == "O"){
+            winMsg.textContent = `${playerX.value}'s turn : X`;
+            winMsg.style.backgroundColor = "black";
+        }
+
         if(winner === "X") {
             winner = playerX.value;
         } else if (winner === "O") {
@@ -109,7 +118,7 @@ const Gameboard = (() => {
     }
 
     const restartGame = () => {
-       resetAll();
+        resetAll();
         playerPlay();
         populateBoard();
         resetColorBoxes();
@@ -118,8 +127,8 @@ const Gameboard = (() => {
 
     const resetAll = () => {
         let winMsg = document.querySelector('.winnerMsg');
-        winMsg.textContent = "";
-        winMsg.style.backgroundColor = "";
+        winMsg.textContent = `${playerX.value}'s turn : X`;
+        winMsg.style.backgroundColor = "black";
         gameboard = ['', '', '', 
                        '', '', '', 
                        '', '', ''];
@@ -161,6 +170,10 @@ const startGame = (() => {
         const gameBody = document.querySelector(".game");
         formElement.style.display = "none";
         gameBody.style.display = 'block';
+
+        let winMsg = document.querySelector('.winnerMsg');
+        winMsg.textContent = `${playerX.value}'s turn : X`
+        winMsg.style.backgroundColor = "black";
         
         // console.log(playerX.value);
         // console.log(playerO.value);

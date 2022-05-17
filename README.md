@@ -35,3 +35,4 @@ if (!e.target.textContent && !gameOver && termCount < 9) takes care of disabling
 
 Input player names:
 have no idea how playerX.value and playerY.value can be accessed from anywhere.
+Game is hidden until start button is clicked.
