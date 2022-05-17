@@ -1,5 +1,7 @@
 # TheOdinProject-TicTacToe
 
+https://sum4n.github.io/TheOdinProject-TicTacToe/
+
 Made the tic tac toe board with html and css.
 Each box is a square div with specific borders.
 Used flex-box to center items on box.
@@ -23,3 +25,5 @@ Tieing the game with termCounter reaches 9 and there is no winner.
 Stops the game by empting boxes = [] when game is own.
 
 restartGame(), resets everything and restart/resets the game.
+
+CheckGameOver() renamed showGameOver() as it also shows game over message.
