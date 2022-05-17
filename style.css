@@ -14,18 +14,26 @@ body{
 
 h1 {
     text-align: center;
-    margin-top: 10px;
 }
 
 .game-board {
     height: 200px;
     width: 260px;
     /* border: 1px solid rgb(255, 255, 255); */
-    margin: 40px auto; /* centers the div */
+    margin: 20px auto; /* centers the div */
 
     display: flex;
     flex-direction: column;
 }
+
+.score {
+    display: flex;
+    /* border: 1px solid white; */
+    justify-content: space-between;
+    margin-top: 20px;
+    background-color: black;
+}
+
 .col1, .col2, .col3 {
     display: flex;
 }
@@ -69,6 +77,10 @@ button {
     margin-top: 100px;
 }
 
+#newGameBtn {
+    background-color: rgba(255, 0, 0, 0.733);
+}
+
 
 .winnerMsg {
     display: flex;
@@ -78,7 +90,7 @@ button {
     /* background-color: rgb(5, 5, 5); */
     height: 30px;
     width: 80%;
-    margin: 20px auto;
+    margin: 5px auto;
     font-style: italic;
     font-size: 24px;
 

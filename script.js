@@ -1,5 +1,6 @@
 const Gameboard = (() => {
-
+    let xScore = 0;
+    let oScore = 0;
     // const playerX = document.getElementById("playerX");
     // const playerO = document.getElementById("playerO");
 
@@ -91,6 +92,8 @@ const Gameboard = (() => {
 
     const showGameOver = () => {
         let winMsg = document.querySelector('.winnerMsg');
+        let xScoreDiv = document.getElementById("scoreX");
+        let oScoreDiv = document.getElementById("scoreY");
         let winner = getGameWinner();
 
         // show whose turn in the msg div
@@ -104,12 +107,18 @@ const Gameboard = (() => {
 
         if(winner === "X") {
             winner = playerX.value;
+            xScore += 1;
+            xScoreDiv.textContent = `${winner}: ${xScore}`;
+            // console.log(xScore);
         } else if (winner === "O") {
             winner = playerO.value;
+            oScore += 1;
+            oScoreDiv.textContent = `${winner}: ${oScore}`;
+            // console.log(oScore);
         }
             
         if(winner){
-            winMsg.textContent = `${winner} have won the game.`;
+            winMsg.textContent = `${winner} have won.`;
             winMsg.style.backgroundColor = "black";
         } else if (!winner && termCount == 9){
             winMsg.textContent = "The game was a tie."
@@ -174,6 +183,12 @@ const startGame = (() => {
         let winMsg = document.querySelector('.winnerMsg');
         winMsg.textContent = `${playerX.value}'s turn : X`
         winMsg.style.backgroundColor = "black";
+
+        let xScoreDiv = document.getElementById("scoreX");
+        let oScoreDiv = document.getElementById("scoreY");
+
+        xScoreDiv.textContent = `${playerX.value}: 0`;
+        oScoreDiv.textContent = `${playerO.value}: 0`;
         
         // console.log(playerX.value);
         // console.log(playerO.value);
