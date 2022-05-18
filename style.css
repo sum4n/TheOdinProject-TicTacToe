@@ -53,6 +53,10 @@ h1 {
     justify-content: center;
 }
 
+.box:hover {
+    background-color: rgba(0, 0, 0, 0.459);
+}
+
 .brd-right {
     border-right: 4px solid white;
 }
@@ -133,4 +137,12 @@ form {
 
 div.form button {
     margin-top: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* border: 1px solid white; */
 }

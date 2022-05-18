@@ -147,7 +147,7 @@ const Gameboard = (() => {
 
         const formElement = document.querySelector(".form");
         const gameBody = document.querySelector(".game");
-        formElement.style.display = "block";
+        formElement.style.display = "flex";
         gameBody.style.display = 'none';
 
         xScore = 0;
