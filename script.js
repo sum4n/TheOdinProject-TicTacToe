@@ -88,7 +88,7 @@ const Gameboard = (() => {
     const showGameOver = () => {
         let winMsg = document.querySelector('.winnerMsg');
         let xScoreDiv = document.getElementById("scoreX");
-        let oScoreDiv = document.getElementById("scoreY");
+        let oScoreDiv = document.getElementById("scoreO");
         let winner = getGameWinner();
 
         if(winner === "X") {
@@ -112,15 +112,15 @@ const Gameboard = (() => {
         }
     }
 
-    const restartGame = () => {
-        resetAll();
+    const nextRound = () => {
+        resetRoundVariables();
         playerPlay();
         populateBoard();
         resetColorBoxes();
         
     }
 
-    const resetAll = () => {
+    const resetRoundVariables = () => {
         let winMsg = document.querySelector('.winnerMsg');
         winMsg.textContent = "";
         winMsg.style.backgroundColor = "";
@@ -132,22 +132,40 @@ const Gameboard = (() => {
         playerMarker = ' ';
     }
 
-    const restartGameClick = () => {
-        const restartBtn = document.getElementById("restartBtn");
-        restartBtn.addEventListener('click', restartGame);
+    const nextRoundClick = () => {
+        const restartBtn = document.getElementById("nextRoundBtn");
+        restartBtn.addEventListener('click', nextRound);
+    }
+
+    const startNewGameClick = () => {
+        const newGameBtn = document.getElementById("newGameBtn");
+        newGameBtn.addEventListener('click', resetGame);
     }
     
+    const resetGame = () => {
+        nextRound();
+
+        const formElement = document.querySelector(".form");
+        const gameBody = document.querySelector(".game");
+        formElement.style.display = "block";
+        gameBody.style.display = 'none';
+
+        xScore = 0;
+        oScore = 0;
+    }
 
     return {
         // populateBoard,
         playerPlay,
-        restartGameClick,
+        nextRoundClick,
+        startNewGameClick,
     };
 }) ();
 
 // Gameboard.populateBoard();
 Gameboard.playerPlay();
-Gameboard.restartGameClick();
+Gameboard.nextRoundClick();
+Gameboard.startNewGameClick();
 
 
 const startGame = (() => {
@@ -164,7 +182,7 @@ const startGame = (() => {
         gameBody.style.display = 'block';
 
         let xScoreDiv = document.getElementById("scoreX");
-        let oScoreDiv = document.getElementById("scoreY");
+        let oScoreDiv = document.getElementById("scoreO");
 
         xScoreDiv.textContent = `${playerX.value}: 0`;
         oScoreDiv.textContent = `${playerO.value}: 0`;

@@ -36,3 +36,6 @@ if (!e.target.textContent && !gameOver && termCount < 9) takes care of disabling
 Input player names:
 have no idea how playerX.value and playerY.value can be accessed from anywhere.
 Game is hidden until start button is clicked.
+
+StartNewGame:
+Most of the work was done in nextRound() function, just had to reset scores to 0.
