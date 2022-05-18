@@ -39,3 +39,6 @@ Game is hidden until start button is clicked.
 
 StartNewGame:
 Most of the work was done in nextRound() function, just had to reset scores to 0.
+
+Form keeps reload on pressing Start button problem:
+needed to remove button outside <form>. and it fixed it.
