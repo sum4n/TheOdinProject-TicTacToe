@@ -1,8 +1,6 @@
 const Gameboard = (() => {
     let xScore = 0;
     let oScore = 0;
-    // const playerX = document.getElementById("playerX");
-    // const playerO = document.getElementById("playerO");
 
     let gameboard = ['', '', '', 
                        '', '', '', 
@@ -38,9 +36,6 @@ const Gameboard = (() => {
     let playerMarker = ' ';
 
     const markBoard = (e) => {
-        // console.log(e.target.textContent);
-        // console.log(list_boxes.indexOf(e.target));
-        // e.target.textContent = 'y';
         const list_boxes = Array.from(boxes);
         const index = list_boxes.indexOf(e.target);
         
@@ -96,15 +91,6 @@ const Gameboard = (() => {
         let oScoreDiv = document.getElementById("scoreY");
         let winner = getGameWinner();
 
-        // show whose turn in the msg div
-        if (playerMarker == "X") {
-            winMsg.textContent = `${playerO.value}'s turn : O`;
-            winMsg.style.backgroundColor = "black";
-        } else if (playerMarker == "O"){
-            winMsg.textContent = `${playerX.value}'s turn : X`;
-            winMsg.style.backgroundColor = "black";
-        }
-
         if(winner === "X") {
             winner = playerX.value;
             xScore += 1;
@@ -136,8 +122,8 @@ const Gameboard = (() => {
 
     const resetAll = () => {
         let winMsg = document.querySelector('.winnerMsg');
-        winMsg.textContent = `${playerX.value}'s turn : X`;
-        winMsg.style.backgroundColor = "black";
+        winMsg.textContent = "";
+        winMsg.style.backgroundColor = "";
         gameboard = ['', '', '', 
                        '', '', '', 
                        '', '', ''];
@@ -167,9 +153,6 @@ Gameboard.restartGameClick();
 const startGame = (() => {
     const startBtn = document.getElementById("nameSubmit");
 
-    // const playerX = document.getElementById("playerX");
-    // const playerO = document.getElementById("playerO");
-
     const btnClick = () => {
         startBtn.addEventListener('click', runGame);
     }
@@ -180,18 +163,12 @@ const startGame = (() => {
         formElement.style.display = "none";
         gameBody.style.display = 'block';
 
-        let winMsg = document.querySelector('.winnerMsg');
-        winMsg.textContent = `${playerX.value}'s turn : X`
-        winMsg.style.backgroundColor = "black";
-
         let xScoreDiv = document.getElementById("scoreX");
         let oScoreDiv = document.getElementById("scoreY");
 
         xScoreDiv.textContent = `${playerX.value}: 0`;
         oScoreDiv.textContent = `${playerO.value}: 0`;
         
-        // console.log(playerX.value);
-        // console.log(playerO.value);
     }
 
     return {
